@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello</h1>
+    <script>
+        const socket = new WebSocket('ws://localhost:8000/ws/chat/?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU4OTE4ODExLCJpYXQiOjE2NTg5MTg1MTEsImp0aSI6IjI0M2ZkNDcyZTRhNzQ3Mzg4ZTcyNjMzMGMyNGEyNzhkIiwidXNlcl9pZCI6MX0.WjNvY3VK51n6tE6m1XzFvLWumfIFnKK2TI8GcL_78YQ');
+        socket.onmessage = function(e){
+            const data = JSON.parse(e.data);
+            console.log(data);
+        }
+    </script>
+</body>
+</html>
