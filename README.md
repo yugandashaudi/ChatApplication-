@@ -1,17 +1,17 @@
 # ChatApplication-
-##This is the apis for the chat application 
+## This is the apis for the chat application 
 
 
-##Features of Chat Application
+## Features of Chat Application
 
 
-Starting a conversation with a user
-Sending and receiving messages and files 
-Seeing when a user is typing
-Seeing notifications for new messages
-Chat scrolling and loading chat history
-Reading messages
-Authenticated connection
+- Starting a conversation with a user
+- Sending and receiving messages and files 
+- Seeing when a user is typing
+- Seeing notifications for new messages
+- Chat scrolling and loading chat history
+- Reading messages
+- Authenticated connection
 
 The protocol used in this application are https and websockets.
 
@@ -22,8 +22,9 @@ Inorder to establish a websockets connection the user must be a authenticated us
 
 If the user is not authenticated or we can say if the user is annonymous then the websockets protocol will send the response like the user is not authenticated user.
 
+## Establish The Connection Using Websockets
 
-The routes are the user inorder to establish the connection is ws:localhost:8000/ws/chat/<conversation_name>/?token='simple_jwt_tokens'
+The route to establish the connection is [title]ws:localhost:8000/ws/chat/<conversation_name>/?token='simple_jwt_tokens'
 Basically the conversation name is the room name containing the sender and reciever username like this yugan_test
 
 Here yugan is the sender and test is the reciever.
