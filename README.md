@@ -5,7 +5,7 @@
 ## Features of Chat Application
 
 
-- Starting a conversation with a `user`
+- Starting a conversation with a user
 - Sending and receiving messages and files 
 - Seeing when a user is typing
 - Seeing notifications for new messages
@@ -24,24 +24,28 @@ If the user is not authenticated or we can say if the user is annonymous then th
 
 ## Establish The Connection Using Websockets
 
-The route to establish the connection is [title]ws:localhost:8000/ws/chat/<conversation_name>/?token='simple_jwt_tokens'
-Basically the conversation name is the room name containing the sender and reciever username like this yugan_test
+The route to establish the connection is [title](ws:localhost:8000/ws/chat/<conversation_name>/?token='simple_jwt_tokens')
+Basically the conversation name is the room name containing the `sender` and `reciever` username like this `yugan_test`
 
-Here yugan is the sender and test is the reciever.
+Here `yugan` is the sender and `test` is the reciever.
 
-when we will request  ws:localhost:8000/ws/chat/<conversation_name>/?token='simple_jwt_tokens' then we will get 
+## Get The messages between the Sender and Reciever
+when we will request  [tittle](ws:localhost:8000/ws/chat/<conversation_name>/?token='simple_jwt_tokens') then we will get 
 
 1.All the last 50 message between the yugan and test 
 2.and the user online status in this case yugan is connected to websocket and yugan will be online 
 
-Other important point is that if we want to create a group and want to send the messages to the group then we will request the url like ws:localhost:8000/ws/chat/<group_name>/?token='simple_jwt_tokens'
+## Create a Group for Messaging
+
+Other important point is that if we want to create a group and want to send the messages to the group then we will request the url like [tittle](ws:localhost:8000/ws/chat/<group_name>/?token='simple_jwt_tokens')
 
 In this case the conversation_name will be replaced with the group_name and we will provide the group name like 1_2_3 and the user with this ids will be inside the created group 
 
-for example: ws:localhost:8000/ws/chat/<1_2_3>/?token='simple_jwt_tokens'.This will create a group with user with ids 1,2 and 3.
+for example: [tittle](ws:localhost:8000/ws/chat/<1_2_3>/?token='simple_jwt_tokens').This will create a `group` with `user` with ids `1`,`2` and `3`.
 
 And if we request this url then similarly we will get the last 50 messages and user online status
 
+## Send Message in Json Format
 Now second part is sending messages to a group or user.
 if order to send the messages we will send the json objects like this 
 {
@@ -64,9 +68,11 @@ This will give the count of unread messages for the requested user.
 
 Now when the user get the new messages and read the message then we should send another json like this 
 
-{
-"type":"read_messages"
-}
+```json 
+    {
+      "type":"read_messages"
+    }
+```
 
 Then in the nofitication url we can see the unread messages updated 
 
