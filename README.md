@@ -5,6 +5,7 @@
 ## Features of Chat Application
 
 
+
 - Starting a conversation with a user
 - Sending and receiving messages and files 
 - Seeing when a user is typing
@@ -24,36 +25,36 @@ If the user is not authenticated or we can say if the user is annonymous then th
 
 ## Establish The Connection Using Websockets
 
-The route to establish the connection is [title](ws:localhost:8000/ws/chat/<conversation_name>/?token='simple_jwt_tokens')
+The route to establish the connection is `ws:localhost:8000/ws/chat/<conversation_name>/?token='simple_jwt_tokens'`
 Basically the conversation name is the room name containing the `sender` and `reciever` username like this `yugan_test`
 
 Here `yugan` is the sender and `test` is the reciever.
 
 ## Get The messages between the Sender and Reciever
-when we will request  [tittle](ws:localhost:8000/ws/chat/<conversation_name>/?token='simple_jwt_tokens') then we will get 
+when we will request  `ws:localhost:8000/ws/chat/<conversation_name>/?token='simple_jwt_tokens'` then we will get 
 
 1.All the last 50 message between the yugan and test 
 2.and the user online status in this case yugan is connected to websocket and yugan will be online 
 
 ## Create a Group for Messaging
 
-Other important point is that if we want to create a group and want to send the messages to the group then we will request the url like [tittle](ws:localhost:8000/ws/chat/<group_name>/?token='simple_jwt_tokens')
+Other important point is that if we want to create a group and want to send the messages to the group then we will request the url like `ws:localhost:8000/ws/chat/<group_name>/?token='simple_jwt_tokens'`
 
 In this case the conversation_name will be replaced with the group_name and we will provide the group name like 1_2_3 and the user with this ids will be inside the created group 
 
-for example: [tittle](ws:localhost:8000/ws/chat/<1_2_3>/?token='simple_jwt_tokens').This will create a `group` with `user` with ids `1`,`2` and `3`.
+for example: `ws:localhost:8000/ws/chat/<1_2_3>/?token='simple_jwt_tokens'`.This will create a `group` with `user` with ids `1`,`2` and `3`.
 
 And if we request this url then similarly we will get the last 50 messages and user online status
 
 ## Send Message in Json Format
 Now second part is sending messages to a group or user.
 if order to send the messages we will send the json objects like this 
-       ```json
+```json
        {
             "type":"chat_message",
             "message":"this is just the testing message"
         }
-        ```
+```
 
 we should specify the 'type' here in the json objects
 ## Send The response if the user is typing
@@ -70,7 +71,7 @@ Third case is that if the user is typing the message then in forntend we should 
 ## Get the nofication of new message and count of unread messages
 
 Now last websocket protocol url is of notification.
-we should call this url [tittle](ws:localhost:8000/ws/notification/?token='simple_jwt_token')
+we should call this url `ws:localhost:8000/ws/notification/?token='simple_jwt_token'`
 This will give the `count` of unread messages for the requested user.
 
 Now when the `user` get the new messages and read the message then we should send another json like this 
@@ -87,17 +88,17 @@ Then in the `nofitication` `url` we can see the `unread` messages updated
 ## Active messages inside a chat room
 Now we will see the https requests.
 Firstly we are going to get the active conversation between the user and reciever.
-we get request on the url [tittle](localhost:8000/conversation/yugan_test)
+we get request on the url [http://localhost:8000/conversation/yugan_test](http://localhost:8000/conversation/yugan_test)
 Then we will get the last active messages between the `yugan` and `test` 
 here `yugan_test` is the `look up` field you can give any parameters like `yugan_test2` this will show the messages between the yugan and test2.
 
 ## Get the chat history with last 50 messages between the user and receiver
-And if we want to get the chat history between the sender and reciever we call get the url [tittle](localhost:8000/messages/?conversation=yugan_test)
+And if we want to get the chat history between the sender and reciever we call get the url [http://localhost:8000/messages/?conversation=yugan_test](http://localhost:8000/messages/?conversation=yugan_test)
 this will return the count and all the messages between the `yugan` and `test`.
 
 ## Send the files as messages between the sender and receiver 
 And lastly we are going to send the files from sender to the reciever and this will be done through the https protocol rather than websockets protocol.
-We send the post request to the url [tittle](localhost:8000/filesmessage/<conversation_name>/) with the  json objects like this:
+We send the post request to the url [http://localhost:8000/filesmessage/<conversation_name](http://localhost:8000/filesmessage/<conversation_name>/) with the  json objects like this:
 
 In `form-data` format not in json format 
 `files`:`files drs in your local enviroment`
