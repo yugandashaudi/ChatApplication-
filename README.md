@@ -1,8 +1,8 @@
 # ChatApplication-
-This is the apis for the chat application 
+##This is the apis for the chat application 
 
 
-The working procedure of this chat application are given below:
+##Features of Chat Application
 
 
 Starting a conversation with a user
