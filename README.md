@@ -5,7 +5,7 @@
 ## Features of Chat Application
 
 
-- Starting a conversation with a user
+- Starting a conversation with a `user`
 - Sending and receiving messages and files 
 - Seeing when a user is typing
 - Seeing notifications for new messages
